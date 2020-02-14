@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<blog-post post-title="李勇" :likes=4 auther="{a:'ly'}"></blog-post>
+			
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.component('BlogPost',{
+			props:{
+				postTitle:String,
+				auther:Object,
+				likes:{
+					type:Number,
+					default:0,
+					required:true,
+					validator:function(value){
+						return value>=0
+					}
+				}
+			},
+			template:`
+				<div>
+					<h1>{{postTitle}}</h1>
+					<h2>{{likes}}</h2>
+					<h3>{{auther}}</h3>
+				</div>
+			`
+		})
+		let vm=new Vue({
+			el:'#app'
+		})
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<hello-world></hello-world>
+				<hello-world></hello-world>
+				<hello-world></hello-world>
+				<hello-world></hello-world>
+			</div>
+			
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="x-template" id="box">
+		<div>
+			<h1 @click="change">标题:{{title}}</h1>
+			<ul v-for="item in list">
+				<li>{{item}}</li>
+			</ul>
+		</div>
+	</script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				seen:false,
+				message:"武汉加油！"
+			},
+			components:{
+				'HelloWorld':{
+					template:'#box',
+					data(){
+						return{
+							title:'hello world!',
+							list:['床前明月光','疑是地上霜','举头望明月','低头思故乡'],
+						}
+					},
+					methods:{
+						change(){
+							this.title="静夜思"
+						}
+					}
+				}
+			},
+			
+		})
+	</script>
+</html>

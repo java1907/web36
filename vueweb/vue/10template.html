@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<!--模板里面的内容会把前面的内容替换掉（message变成“欢迎message”的内容）-->
+	<!--写了模板以后必须要写一个div-->
+	<script type="x-template" id="box">
+		<div>
+			欢迎:{{message}}
+		</div>
+	</script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				message:'hello world!'
+			},
+			template:"#box",
+			
+		})
+	</script>
+</html>

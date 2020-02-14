@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<web></web>
+			</div>
+		</div>
+		<div id="app1">
+			<web></web>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script type="x-template">
+		<div>
+			<h2>{{message}}</h2>
+		</div>
+		
+	</script>-->
+	<script type="text/javascript">
+		Vue.component('web',{
+			template:`<div><h2>hello world!</h2><h2>哈哈哈</h2></div>`,
+			data(){
+				return{
+					message:'哈哈哈'
+				}
+			}
+		})
+		new Vue({
+			el:'#app',
+		})
+		new Vue({
+			el:'#app1',
+		})
+	</script>
+</html>

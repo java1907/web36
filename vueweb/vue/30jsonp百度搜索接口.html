@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--当鼠标按下时请求接口-->
+			<input type="text" v-model="word" @keyup="getjsonp()"/>
+			<ul v-for="item in baidudata">
+				<li>{{item}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script type="text/javascript">
+	
+		new Vue({
+			el:'#app',
+			data:{
+				word:'',
+				baidudata:[],
+			},
+			methods:{
+				getjsonp(){
+					this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+						params:{
+							wd:this.word,
+						},
+						jsonp:'cb'
+					}).then(res=>{
+						console.log(res);
+						this.baidudata=res.body.s;
+					})
+				}
+			}
+		})
+		
+	</script>
+</html>

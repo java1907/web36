@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button"  value="hello组件" @click="a='hello'"/>
+			<input type="button"  value="world组件" @click="a='world'"/>
+			<component :is="a"></component>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				a:'hello'
+			},
+			components:{
+				'hello':{
+					template:'<h1>我是hello组件</h1>'
+				},
+				'world':{
+					template:'<h1>我是world组件</h1>'
+				}
+			}
+		})
+		
+	</script>
+</html>

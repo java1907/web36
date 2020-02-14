@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<p>{{info}}</p>
+			<span v-html="info"></span>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#box',
+				data:{
+					info:'<h1>今天是星期一啊</h1>'
+				}
+			})
+		</script>
+	</body>
+</html>

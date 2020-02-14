@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul v-for="item in list">
+				<li>{{item}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				list:['床前明月光','疑是地上霜','举头望明月','低头思故乡'],
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" id="" value="增加" v-on:click="big()"/>
+			<input type="button" id="" value="减少" @click="small()" />
+			{{n}}
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#app",
+			data:{
+				n:0
+			},
+			methods:{
+				big:function(){
+					this.n++;
+				},
+				small(){
+					this.n--;
+				}
+			}
+		})
+	</script>
+</html>

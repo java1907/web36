@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{name}}
+			<input type="button"  value="获取数据（调接口）" @click="getdata()"/>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				name:'李勇',
+			},
+			methods:{
+				getdata(){
+//					Promise/箭头函数都是es6的新语法
+//					promise.then(function(res){
+//						console.log(res);
+//					})
+//					等价于箭头函数
+//					promise.then(res=>{
+//						console.log(res)
+//					})
+
+//第一种调接口方式
+//					this.$http.get("http://route.showapi.com/852-2?showapi_appid=105664&type=4001&page=1&showapi_sign=7bef29075a1d417bb9d56d4b9848209b").then(res=>{
+//						console.log(res);
+//					})
+
+//第二种调接口方式(如果请求方式为get，则要写在params｛｝，post不需要)
+//					this.$http.get("http://route.showapi.com/852-2",{
+//						params:{
+//							showapi_appid:105664,
+//							type:4001,
+//							page:1,
+//							showapi_sign:'7bef29075a1d417bb9d56d4b9848209b'
+//						}
+//					}).then(res=>{
+//						console.log(res);
+//					})
+					
+					
+					this.$http.get("http://route.showapi.com/852-2",{
+						
+							showapi_appid:105664,
+							type:4001,
+							page:1,
+							showapi_sign:'7bef29075a1d417bb9d56d4b9848209b'
+						
+					}).then(res=>{
+						console.log(res);
+					})
+				}
+			}
+		})
+	</script>
+</html>

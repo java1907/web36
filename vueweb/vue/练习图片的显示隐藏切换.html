@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" id="" value="显示/隐藏" @click="qiehuan()"/></br>
+			<img src="img/timg (2).jpg" v-show="isshow"/>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				isshow:true
+			},
+			methods:{
+				qiehuan(){
+					this.isshow=!this.isshow;
+				}
+			}
+		})
+	</script>
+</html>

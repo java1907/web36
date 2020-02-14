@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div id="app">
+			<hello>
+				<div>11111</div>
+				<h3>{{message}}</h3>
+				<div>11111</div>
+			</hello>
+		</div>
+		<tempalte id="box">
+			<div>
+				<h2><font color="#FF0000">我是模板的开始</font></h2>
+				<slot></slot>
+				<h2><font color="darkblue">我是模板的结束</font></h2>
+			</div>
+		</tempalte>
+	</body>
+
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				message:'南方大厦女课件SVN开发建设'
+			},
+//			组件(components)起的名字为hello,组件里面包含模板(template)起的名字box
+			components:{
+				'hello':{
+					template:'#box'
+				}
+				
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{dateTime|date}}
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.filter("date",function(val){
+			let oTime=new Date(val)
+			return oTime.getFullYear()+'-'+(oTime.getMonth()+1)+'星期'+oTime.getDay()+' '+oTime.getHours()+':'+oTime.getMinutes()
+			+':'+oTime.getSeconds()
+		})
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				dateTime:Date.now()
+			}
+		})
+		
+	</script>
+</html>

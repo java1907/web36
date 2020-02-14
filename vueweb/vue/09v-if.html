@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if="isShow">{{message}}</p>
+			<p v-else>{{message1}}</p>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				//true显示我出来了！
+				isShow:false,
+				message:'我出来了！',
+				message1:'武汉加油！',
+			}
+		})
+	</script>
+</html>

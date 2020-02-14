@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				width: 90%;
+				overflow: hidden;
+				border: 2px solid red;
+				list-style: none;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button"  value="获取数据（调接口）" @click="getdata()"/>
+			<ul>
+				<li v-for="item in list">
+					<h4>{{item.ct}}</h4>
+					<h5>{{item.title}}</h5>
+				</li>
+				
+			</ul>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				list:[],
+			},
+			methods:{
+				getdata(){
+//					$.ajax({
+//						type:"get",
+//						url:"",
+//						async:true,
+//						success:function(res){
+//							console.log(res);
+//						}
+//					})
+				//全写
+//					axios({
+//						method:"get",
+//						data:{
+//							showapi_appid:105664,
+//							type:4001,
+//							page:1,
+//							showapi_sign:'7bef29075a1d417bb9d56d4b9848209b'
+//						},
+//						url:"http://route.showapi.com/852-2",
+//					}).then(res=>{
+//						console.log(res);
+//					})
+					//简写
+					axios.get("http://route.showapi.com/852-2",{
+						params:{
+							showapi_appid:105664,
+							type:4001,
+							page:1,
+							showapi_sign:'7bef29075a1d417bb9d56d4b9848209b'
+						}
+					}).then(res=>{
+						console.log(res);
+						this.list=res.data.showapi_res_body.pagebean.contentlist;
+						console.log(this.list);
+					})
+				}
+			}
+		})
+	</script>
+</html>

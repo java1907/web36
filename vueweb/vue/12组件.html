@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<hello>
+				<div slot="one">我替换第一个slot</div>
+				<div slot="two">我替换第二个slot</div>
+				<div>我替换第三个slot</div>
+				<!--北海道次程度上次不是当年-->
+			</hello>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.component('hello',{
+			template:`
+				<div>
+					<span>首页</span>
+					<slot name="two">我是老大</slot>
+					<slot name="one">我是老二</slot>
+					<slot name="three">我是老三</slot>
+					北海道次程度上次不是当年
+				</div>
+			`
+		})
+		new Vue({
+			el:'#app',
+			data:{}
+		})
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.ys{
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				
+			},
+			render(createElement){
+				return createElement(
+					'ul',{
+						class:{ys:true},//添加类名
+						style:{fontSize:'32px'},//设置样式
+						attrs:{three:'shuxing'}//新增自定义属性
+					},
+					[
+						createElement('li',1),
+						createElement('li',2),
+						createElement('li',3),
+					]
+				)
+			}
+		})
+	</script>
+</html>
