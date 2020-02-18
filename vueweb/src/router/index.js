@@ -3,6 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import frist from '@/components/frist'
 import page from '@/components/page'
+import home from '@/views/home'
+import tiaozhuan from '@/views/tiaozhuan'
+
+
 // 此处定义了一个名为User的组件，无需在组件conponents的
 // 文件下新建User.vue模板，也无需在本页index.js中用impront引入
 const User = {
@@ -30,10 +34,22 @@ export default new Router({
     mode: "history",
     // 统一的class名字是nav，但行内样式work级别高
     linkActiveClass: "nav",
-    routes: [{
+    routes: [
+        // {
+        //     path: '/',
+        //     name: 'HelloWorld',
+        //     component: HelloWorld
+        // },
+        //第一种访问index页面的方式或者/index
+        {
+            path: '/index',
+            name: 'home',
+            component: home
+        },
+        //第二种访问index页面的方式,redirect直接访问。注释掉路由重定向（if&else）
+        {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
+            redirect: 'index',
         },
         {
             path: '/one/:class',
@@ -41,25 +57,32 @@ export default new Router({
             component: frist
         },
         {
+            path: '/tiaozhuan',
+            name: 'tiaozhuan',
+            component: tiaozhuan
+        },
+        {
             path: '/page',
             name: 'pageone',
             component: page
         },
-        {
-            path: '*',
-            component: NotFont,
-            redirect: (to) => {
-                console.log(to);
-                if (to.path == '/aaa') {
-                    return '/page'
-                } else if (to.path == '/bbb') {
-                    return 'one/BBB'
-                } else {
-                    // 不能return*否则进入死循环
-                    return '/'
-                }
-            }
-        },
+        // {
+        //     path: '*',
+        //     component: NotFont,
+        //     redirect: (to) => {
+        //         console.log(to);
+        //         if (to.path == '/aaa') {
+        //             return '/page'
+        //         } else if (to.path == '/bbb') {
+        //             return 'one/BBB'
+        //         } else {
+        //             // 不能return*否则进入死循环
+        //             return '/index'
+        //         }
+        //     }
+        // },
+
+
         // {
         //     path: '/user/:id',
         //     name: 'User',
@@ -75,20 +98,20 @@ export default new Router({
         //     }]
         // }
 
-        {
-            path: '/user/:id',
-            name: 'User',
-            component: User,
-            children: [{
-                path: '',
-                name: 'Sonfrist',
-                component: Sonfrist
-            }, {
-                path: 'sontwo',
-                name: 'Senfrist',
-                component: Senfrist
-            }]
-        }
+        // {
+        //     path: '/user/:id',
+        //     name: 'User',
+        //     component: User,
+        //     children: [{
+        //         path: '',
+        //         name: 'Sonfrist',
+        //         component: Sonfrist
+        //     }, {
+        //         path: 'sontwo',
+        //         name: 'Senfrist',
+        //         component: Senfrist
+        //     }]
+        // }
 
     ]
 })
