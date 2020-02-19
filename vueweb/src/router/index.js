@@ -5,6 +5,7 @@ import frist from '@/components/frist'
 import page from '@/components/page'
 import home from '@/views/home'
 import tiaozhuan from '@/views/tiaozhuan'
+import count from '@/views/count'
 
 
 // 此处定义了一个名为User的组件，无需在组件conponents的
@@ -50,6 +51,11 @@ export default new Router({
         {
             path: '/',
             redirect: 'index',
+        },
+        {
+            path: '/count',
+            name: 'count',
+            component: count
         },
         {
             path: '/one/:class',
